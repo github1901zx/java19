@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Создание дисциплины</title>
-    <link rel="stylesheet" href="../../resources/css/stidents.css">
+    <link rel="stylesheet" href="../../resources/css/style.css">
 </head>
 <body>
 <h1>Для того чтобы создать новую дисциплину

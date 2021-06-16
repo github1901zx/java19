@@ -6,7 +6,7 @@
 <html>
 <head>
     <title> Дисциплины </title>
-    <link rel="stylesheet" href="../../resources/css/stidents.css">
+    <link rel="stylesheet" href="../../resources/css/style.css">
 </head>
 <body>
 <h1> Страница с дисциплинами </h1>
