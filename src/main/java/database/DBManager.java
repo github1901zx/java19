@@ -2,6 +2,8 @@ package database;
 
 
 import entity.Discepline;
+import entity.Group;
+import entity.Student;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,27 +12,31 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DBManager {
-//    public static void main(String[] args) {
-//        String url ="jdbc:mysql://localhost:7777/students_java_19";
-//        String user ="root";
-//        String password ="root19011994";
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            Connection conn = DriverManager.getConnection
-//                    (url,user,password);
-//            System.out.println("База");
-//            Statement stmt = conn.createStatement();
-//            ResultSet rs = stmt.executeQuery("select * from `discipline`");
-//            while (rs.next()){
-//                System.out.print(rs.getInt("id")+"-");
-//                System.out.print(rs.getString("discipline")+"-");
-//                System.out.print(rs.getInt("status"));
-//                System.out.println();
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+
+    public static ArrayList<Student> getAllActiveStudent() {
+        String url ="jdbc:mysql://localhost:7777/students_java_19";
+        String user ="root";
+        String password ="root19011994";
+        ArrayList<Student> students = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection
+                    (url,user,password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select lastname,name,id from student;");
+
+            while (rs.next()){
+                Student student = new Student();
+                student.setLastname(rs.getString("lastname"));
+                student.setName(rs.getString("name"));
+                student.setId(rs.getInt("id"));
+                students.add(student);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return students;
+    }
 
     public static ArrayList<Discepline> getAllActiveDisceplines(){
         String url ="jdbc:mysql://localhost:7777/students_java_19";
@@ -41,7 +47,6 @@ public class DBManager {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection
                     (url,user,password);
-            System.out.println("База присоеденилась");
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("select * from `discipline` where `status` = '1';");
 
@@ -67,7 +72,6 @@ public class DBManager {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection
                     (url,user,password);
-            System.out.println("База присоеденилась");
             Statement stmt = conn.createStatement();
             stmt.execute("INSERT INTO `discipline` (`discipline`, `status`) VALUES ('"+disc+"', '1');");
 
