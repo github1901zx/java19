@@ -38,6 +38,28 @@ public class DBManager {
         return students;
     }
 
+    public static Discepline getDisceplineById( String id){
+        String url ="jdbc:mysql://localhost:7777/students_java_19";
+        String user ="root";
+        String password ="root19011994";
+        Discepline discepline = new Discepline();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection
+                    (url,user,password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from students_java_19.discipline where id = '"+id+"';");
+
+            while (rs.next()){
+                discepline.setDiscipline(rs.getString("discipline"));
+                discepline.setId(rs.getInt("id"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return discepline;
+    }
+
     public static ArrayList<Discepline> getAllActiveDisceplines(){
         String url ="jdbc:mysql://localhost:7777/students_java_19";
         String user ="root";
