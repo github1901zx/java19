@@ -14,18 +14,18 @@ import java.util.ArrayList;
 public class DBManager {
 
     public static ArrayList<Student> getAllActiveStudent() {
-        String url ="jdbc:mysql://localhost:7777/students_java_19";
-        String user ="root";
-        String password ="root19011994";
+        String url = "jdbc:mysql://localhost:7777/students_java_19";
+        String user = "root";
+        String password = "root19011994";
         ArrayList<Student> students = new ArrayList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection
-                    (url,user,password);
+                    (url, user, password);
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("select lastname,name,id from student;");
 
-            while (rs.next()){
+            while (rs.next()) {
                 Student student = new Student();
                 student.setLastname(rs.getString("lastname"));
                 student.setName(rs.getString("name"));
@@ -38,19 +38,19 @@ public class DBManager {
         return students;
     }
 
-    public static Discepline getDisceplineById( String id){
-        String url ="jdbc:mysql://localhost:7777/students_java_19";
-        String user ="root";
-        String password ="root19011994";
+    public static Discepline getDisceplineById(String id) {
+        String url = "jdbc:mysql://localhost:7777/students_java_19";
+        String user = "root";
+        String password = "root19011994";
         Discepline discepline = new Discepline();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection
-                    (url,user,password);
+                    (url, user, password);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from students_java_19.discipline where id = '"+id+"';");
+            ResultSet rs = stmt.executeQuery("select * from students_java_19.discipline where id = '" + id + "';");
 
-            while (rs.next()){
+            while (rs.next()) {
                 discepline.setDiscipline(rs.getString("discipline"));
                 discepline.setId(rs.getInt("id"));
             }
@@ -60,19 +60,19 @@ public class DBManager {
         return discepline;
     }
 
-    public static ArrayList<Discepline> getAllActiveDisceplines(){
-        String url ="jdbc:mysql://localhost:7777/students_java_19";
-        String user ="root";
-        String password ="root19011994";
+    public static ArrayList<Discepline> getAllActiveDisceplines() {
+        String url = "jdbc:mysql://localhost:7777/students_java_19";
+        String user = "root";
+        String password = "root19011994";
         ArrayList<Discepline> disceplines = new ArrayList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection
-                    (url,user,password);
+                    (url, user, password);
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("select * from `discipline` where `status` = '1';");
 
-            while (rs.next()){
+            while (rs.next()) {
                 Discepline discepline = new Discepline();
                 discepline.setDiscipline(rs.getString("discipline"));
                 discepline.setId(rs.getInt("id"));
@@ -84,21 +84,43 @@ public class DBManager {
         return disceplines;
     }
 
-    public static void createDiscepline (String disc){
+    public static void createDiscepline(String disc) {
 
-        String url ="jdbc:mysql://localhost:7777/students_java_19";
-        String user ="root";
-        String password ="root19011994";
+        String url = "jdbc:mysql://localhost:7777/students_java_19";
+        String user = "root";
+        String password = "root19011994";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection
-                    (url,user,password);
+                    (url, user, password);
             Statement stmt = conn.createStatement();
-            stmt.execute("INSERT INTO `discipline` (`discipline`, `status`) VALUES ('"+disc+"', '1');");
+            stmt.execute("INSERT INTO `discipline` (`discipline`, `status`) VALUES ('" + disc + "', '1');");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    public static void deleteDiscepline(String disc) {
+
+        String url = "jdbc:mysql://localhost:7777/students_java_19";
+        String user = "root";
+        String password = "root19011994";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection
+                    (url, user, password);
+            Statement stmt = conn.createStatement();
+            stmt.execute("DELETE FROM discipline WHERE id = ('" + disc + "')");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
 }

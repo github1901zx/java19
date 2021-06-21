@@ -9,17 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "DisciplineCreateControllers", urlPatterns = "/discipline-create")
-public class DisciplineCreateControllers extends HttpServlet {
+@WebServlet( name = "DisceplineDeleteController", urlPatterns = "/discipline-delete")
+public class DisceplineDeleteController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("WEB-INF/jsp/discepline-create.jsp").forward(req,resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String disc = req.getParameter("newDisc");
-        DBManager.createDiscepline(disc);
+        String id = req.getParameter("hiddenDelete");
+        DBManager.deleteDiscepline(id);
         resp.sendRedirect("/disceplines");
     }
 }
