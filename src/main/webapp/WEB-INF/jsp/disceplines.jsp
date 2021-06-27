@@ -39,15 +39,15 @@
                     <h3 class="table-name">Список дисциплин</h3>
                     <table class="table table-bordered">
                         <tr>
-                            <th></th>
+                            <th>*</th>
                             <th>Дисциплина</th>
                         </tr>
 
                             <c:forEach items="${disceplines}" var="disc">
-                                <tr>
+                                <tr >
                                 <td><input class="form-check-input mt-0" type="checkbox" value="${disc.id}"
                                            aria-label="Checkbox for following text input">
-                                </td>
+                                </td >
                                 <td>${disc.discipline}</td>
                                 </tr>
                             </c:forEach>
@@ -70,7 +70,7 @@
                         </form>
 
                         <input class="btn btn-primary buttonD" type="submit" onclick="delDiscipline()"  value="Удалить дисциплину">
-                        <form id="formDelete" action="/discipline-delete"  onclick="delDiscipline" method="get">
+                        <form id="formDelete" action="/discipline-delete"  onclick="delDiscipline" method="post">
                             <input type="hidden" id="hiddenDelete" name="hiddenDelete">
                         </form>
 

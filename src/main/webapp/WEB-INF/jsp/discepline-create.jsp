@@ -1,5 +1,8 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
+
 <html>
 <head>
     <title>Создание дисциплины</title>
@@ -16,6 +19,9 @@
 <form action="/discipline-create" method="post">
     <input type="text" name="newDisc">
     <input class="btn btn-primary buttonD" type="submit" value="Создать">
+    <c:if test="${massege == 'error'}">
+        <h5>Поле не должно быть пусты</h5>
+    </c:if>
 </form>
 
 </body>

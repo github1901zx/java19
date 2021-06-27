@@ -71,4 +71,6 @@ button{
 .buttonD{
     background-color: green;
     border-color: green;
+    width: 200px;
 }
+

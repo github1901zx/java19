@@ -23,13 +23,16 @@ public class DBManager {
             Connection conn = DriverManager.getConnection
                     (url, user, password);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select lastname,name,id from student;");
+            ResultSet rs = stmt.executeQuery("SELECT student.lastname,student.name,group.name as grp,student.date FROM student LEFT JOIN `group` on `group`.id = student.id_group;");
 
             while (rs.next()) {
                 Student student = new Student();
+                Group group = new Group();
                 student.setLastname(rs.getString("lastname"));
                 student.setName(rs.getString("name"));
-                student.setId(rs.getInt("id"));
+                student.setDate(rs.getDate("date"));
+                group.setName(rs.getString("grp"));
+                student.setGroup(group);
                 students.add(student);
             }
         } catch (Exception e) {
@@ -102,7 +105,7 @@ public class DBManager {
         }
     }
 
-    public static void deleteDiscepline(String disc) {
+    public static void deleteDiscepline(String p) {
 
         String url = "jdbc:mysql://localhost:7777/students_java_19";
         String user = "root";
@@ -113,14 +116,32 @@ public class DBManager {
             Connection conn = DriverManager.getConnection
                     (url, user, password);
             Statement stmt = conn.createStatement();
-            stmt.execute("DELETE FROM discipline WHERE id = ('" + disc + "')");
+            stmt.execute("UPDATE `discipline` SET `status`=  '0' WHERE id in ("+ p +");");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
+
+    public static void modifyDiscepline(String id, String name) {
+
+        String url = "jdbc:mysql://localhost:7777/students_java_19";
+        String user = "root";
+        String password = "root19011994";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection
+                    (url, user, password);
+            Statement stmt = conn.createStatement();
+            stmt.execute("UPDATE `discipline` SET `discipline` =  ('"+ name +"') WHERE id = ('"+ id +"');");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 }

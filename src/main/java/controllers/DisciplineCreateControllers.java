@@ -1,6 +1,7 @@
 package controllers;
 
 import database.DBManager;
+import entity.Discepline;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +20,11 @@ public class DisciplineCreateControllers extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String disc = req.getParameter("newDisc");
+        if(disc == null || disc.equals("")){
+            req.setAttribute("massege","error");
+            req.getRequestDispatcher("WEB-INF/jsp/discepline-create.jsp").forward(req,resp);
+            return;
+        }
         DBManager.createDiscepline(disc);
         resp.sendRedirect("/disceplines");
     }

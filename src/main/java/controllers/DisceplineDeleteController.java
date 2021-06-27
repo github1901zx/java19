@@ -12,7 +12,7 @@ import java.io.IOException;
 @WebServlet( name = "DisceplineDeleteController", urlPatterns = "/discipline-delete")
 public class DisceplineDeleteController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("hiddenDelete");
         DBManager.deleteDiscepline(id);
         resp.sendRedirect("/disceplines");

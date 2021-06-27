@@ -1,5 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
@@ -32,10 +33,13 @@
 
     <div class="row">
         <div class="col">
-            <form action="/" method="post" >
-                <input type="hidden" value="${disp.id}">
-                <input type="text" name="newDisc" value="${disp.discipline}">
+            <form action="/discipline-modify" method="post" >
+                <input name="idModify" type="hidden" value="${disp.id}">
+                <input type="text" name="discModify" value="${disp.discipline}">
                 <input class="btn btn-primary buttonD" type="submit" value="Изменить">
+                <c:if test="${massege == 'error'}">
+                    <h5>Поле не должно быть пусты</h5>
+                </c:if>
             </form>
         </div>
         <div class="col-md-auto">

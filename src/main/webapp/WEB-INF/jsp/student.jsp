@@ -55,13 +55,15 @@
                 <tr>
                     <th>Имя</th>
                     <th>Фамилия</th>
-                    <th>Инд</th>
+                    <th>Группа</th>
+                    <th>Дата</th>
                 </tr>
                     <c:forEach items="${students}" var="stud">
                         <tr>
                             <td>${stud.name}</td>
                             <td>${stud.lastname}</td>
-                            <td>${stud.id}</td>
+                            <td>${stud.group.name}</td>
+                            <td>${stud.date}</td>
                         </tr>
                     </c:forEach>
             </table>

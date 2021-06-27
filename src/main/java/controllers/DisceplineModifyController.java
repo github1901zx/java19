@@ -20,4 +20,21 @@ public class DisceplineModifyController extends HttpServlet {
         req.getRequestDispatcher("WEB-INF/jsp/discepline-modify.jsp").forward(req,resp);
 
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id = req.getParameter("idModify");
+        String disc = req.getParameter("discModify");
+
+        if(disc == null || disc.equals("")){
+            req.setAttribute("massege","error");
+            Discepline disp = DBManager.getDisceplineById(id);
+            req.setAttribute("disc",disp);
+            req.getRequestDispatcher("WEB-INF/jsp/discepline-modify.jsp").forward(req,resp);
+            return;
+        }
+
+        DBManager.modifyDiscepline(id,disc);
+        resp.sendRedirect("/disceplines");
+    }
 }
