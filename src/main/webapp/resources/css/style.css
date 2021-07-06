@@ -73,4 +73,7 @@ button{
     border-color: green;
     width: 200px;
 }
-
+.buttonDstud{
+    background-color: green;
+    border-color: green;
+}

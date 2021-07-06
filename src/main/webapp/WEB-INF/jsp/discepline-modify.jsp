@@ -12,7 +12,7 @@
 <body>
 <div  class="container">
     <nav class="navi">
-        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="../../index.jsp" role="button"
            aria-controls="offcanvasExample">
             На главную
         </a>

@@ -22,7 +22,7 @@
 <section>
     <div class="container">
         <nav class="navi">
-            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="../../index.jsp" role="button" aria-controls="offcanvasExample">
                 На главную
             </a>
             <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
@@ -37,14 +37,17 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="right">
-                            <input class="btn btn-primary buttonD" type="submit" value="Посмотреть успеваемоcть выбранных студенлтов">
-                            <input class="btn btn-primary buttonD" type="submit" value="Модифицыровать выбранного студента">
+                            <input class="btn btn-primary buttonDstud" type="submit" value="Посмотреть успеваемоcть выбранных студентов">
+                            <input class="btn btn-primary buttonDstud" type="submit" value="Модифицыровать выбранного студента">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="left">
-                            <input class="btn btn-primary buttonD" type="submit" value="Создать студента">
-                            <input class="btn btn-primary buttonD" type="submit" value="Удалить студента">
+                        <form action="/students-create" method="get">
+                            <input class="btn btn-primary buttonDstud" type="submit" value="Создать студента">
+                        </form>
+
+                            <input class="btn btn-primary buttonDstud" type="submit" value="Удалить студента">
                     </div>
 
                 </div>

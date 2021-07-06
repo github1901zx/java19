@@ -1,7 +1,6 @@
 package controllers;
 
 import database.DBManager;
-import entity.Discepline;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
