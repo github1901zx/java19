@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/Student Modifying.css">
+    <link rel="stylesheet" href="../../resources/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <title>Студенты</title>
@@ -20,20 +20,16 @@
 <body>
 <section class="sheme_students"></section>
 <div class="container">
-    <div class="sheme_input">
-        <ul class="nav nav-pills navbar">
-            <li class="nav-item ">
-                <a class="nav-link active home" aria-current="page" href="#">На главную</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link active exit" aria-current="page" href="#">Выход</a>
-            </li>
-
-        </ul>
-
-
-    </div>
-    <h1>Система управления студентами и их успеваемостью</h1>
+    <nav class="navi">
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="../../index.jsp" role="button"
+           aria-controls="offcanvasExample">
+            На главную
+        </a>
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+           aria-controls="offcanvasExample">
+            Выход
+        </a>
+    </nav>
 
     <h3>Для создания студента заполните все поля и нажмите кнопку "Применить"</h3>
 

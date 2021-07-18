@@ -63,6 +63,9 @@
                 </tr>
                     <c:forEach items="${students}" var="stud">
                         <tr>
+                            <td><input class="form-check-input mt-0" type="checkbox" value="${stud.id}"
+                                       aria-label="Checkbox for following text input">
+                            </td >
                             <td>${stud.name}</td>
                             <td>${stud.lastname}</td>
                             <td>${stud.group.name}</td>

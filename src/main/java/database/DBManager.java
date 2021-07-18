@@ -5,6 +5,7 @@ import constants.Constants;
 import entity.Discepline;
 import entity.Group;
 import entity.Student;
+import entity.Term;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -187,5 +188,61 @@ public class DBManager {
         }
         return groups;
     }
+
+    public static ArrayList<Term> getAllActiveTerms() {
+//        String url = "jdbc:mysql://localhost:7777/students_java_19";
+//        String user = "root";
+//        String password = "root19011994";
+        ArrayList<Term> terms = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection
+                    (Constants.url, Constants.user, Constants.password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from `term` where `status` = '1';");
+
+            int count = 1;
+            while (rs.next()) {
+                Term term = new Term();
+                term.setId(rs.getInt("id"));
+                term.setName("Семестр" + count);
+                count++;
+                term.setDuration(rs.getString("duration"));
+                terms.add(term);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return terms;
+    }
+
+    public static ArrayList<Discepline> getAllActiveDisceplinesByTerm(int idTerm) {
+//        String url = "jdbc:mysql://localhost:7777/students_java_19";
+//        String user = "root";
+//        String password = "root19011994";
+        ArrayList<Discepline> disceplines = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection
+                    (Constants.url, Constants.user, Constants.password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(
+                    "SELECT d.id, d.discipline FROM term_discipline as td\n" +
+                    "left join discipline as d on td.id_discipline = d.id \n" +
+                    "where td.id_term='"+idTerm+"'\n" +
+                    "and d.status='1';");
+
+            while (rs.next()) {
+                Discepline discepline = new Discepline();
+                discepline.setDiscipline(rs.getString("discipline"));
+                discepline.setId(rs.getInt("id"));
+                disceplines.add(discepline);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return disceplines;
+    }
+
 
 }

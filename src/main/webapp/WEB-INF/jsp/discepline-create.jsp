@@ -11,18 +11,29 @@
     <link rel="stylesheet" href="../../resources/css/style.css">
 </head>
 <body>
-<h1>Для того чтобы создать новую дисциплину
-    заполниете все поля и нажмите кнопку "Создать"</h1>
+<div class="container">
+    <nav class="navi">
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="../../index.jsp" role="button"
+           aria-controls="offcanvasExample">
+            На главную
+        </a>
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+           aria-controls="offcanvasExample">
+            Выход
+        </a>
+    </nav>
+    <h4>Для того чтобы создать новую дисциплину
+        заполниете все поля и нажмите кнопку "Создать"</h4>
 
-<label>Название</label>
+    <label>Название</label>
 
-<form action="/discipline-create" method="post">
-    <input type="text" name="newDisc">
-    <input class="btn btn-primary buttonD" type="submit" value="Создать">
-    <c:if test="${massege == 'error'}">
-        <h5>Поле не должно быть пусты</h5>
-    </c:if>
-</form>
-
+    <form action="/discipline-create" method="post">
+        <input type="text" name="newDisc">
+        <input class="btn btn-primary buttonD" type="submit" value="Создать">
+        <c:if test="${massege == 'error'}">
+            <h5>Поле не должно быть пусты</h5>
+        </c:if>
+    </form>
+</div>
 </body>
 </html>
