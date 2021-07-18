@@ -36,27 +36,43 @@
     <div class="form_student">
         <div class="row">
             <div class="col-md-6">
+                <form action="/students-create" method="post">
+
+
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Фамилия</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="lastname" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <c:if test="${massege == 'error'}">
+                        <h5>Поле не должно быть пусты</h5>
+                    </c:if>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Имя</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <c:if test="${massege1 == 'error1'}">
+                        <h5>Поле не должно быть пусты</h5>
+                    </c:if>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Группа</span>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" name="group" aria-label="Default select example">
                         <c:forEach items="${groups}" var="group">
-                            <option>${group.name}</option>
+                            <option value="${group.id}">${group.name}</option>
                         </c:forEach>
                     </select>
+                    <c:if test="${massege2 == 'error2'}">
+                        <h5>Поле не должно быть пусты</h5>
+                    </c:if>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Дата в формате "2020-09-01"</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <c:if test="${massege3 == 'error3'}">
+                        <h5>Поле не должно быть пусты</h5>
+                    </c:if>
                 </div>
                 <input class="btn btn-primary apply" type="submit" value="Создать">
+                </form>
             </div>
         </div>
     </div>

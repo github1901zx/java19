@@ -122,7 +122,7 @@ public class DBManager {
             Connection conn = DriverManager.getConnection
                     (Constants.url, Constants.user, Constants.password);
             Statement stmt = conn.createStatement();
-            stmt.execute("UPDATE `discipline` SET `status`=  '0' WHERE id in ("+ p +");");
+            stmt.execute("UPDATE `discipline` SET `status`=  '0' WHERE id in (" + p + ");");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -140,14 +140,14 @@ public class DBManager {
             Connection conn = DriverManager.getConnection
                     (Constants.url, Constants.user, Constants.password);
             Statement stmt = conn.createStatement();
-            stmt.execute("UPDATE `discipline` SET `discipline` =  ('"+ name +"') WHERE id = ('"+ id +"');");
+            stmt.execute("UPDATE `discipline` SET `discipline` =  ('" + name + "') WHERE id = ('" + id + "');");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void createStudent(String lastname,String name,String idGrp,String date,String status) {
+    public static void createStudent(String lastname, String name, String idGrp, String date, String status) {
 
 //        String url = "jdbc:mysql://localhost:7777/students_java_19";
 //        String user = "root";
@@ -159,12 +159,13 @@ public class DBManager {
                     (Constants.url, Constants.user, Constants.password);
             Statement stmt = conn.createStatement();
             stmt.execute("INSERT INTO `students_java_19`.`student` (`lastname`, `name`, `id_group`, `date`, `status`) " +
-                    "VALUES (('"+ lastname +"'), ('"+ name +"'), ('"+ idGrp +"'), ('"+ date +"'), ('"+ status +"'));");
+                    "VALUES (('" + lastname + "'), ('" + name + "'), ('" + idGrp + "'), ('" + date + "'), ('" + status + "'));");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public static ArrayList<Group> getAllGroup() {
 //        String url = "jdbc:mysql://localhost:7777/students_java_19";
 //        String user = "root";
@@ -228,9 +229,9 @@ public class DBManager {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(
                     "SELECT d.id, d.discipline FROM term_discipline as td\n" +
-                    "left join discipline as d on td.id_discipline = d.id \n" +
-                    "where td.id_term='"+idTerm+"'\n" +
-                    "and d.status='1';");
+                            "left join discipline as d on td.id_discipline = d.id \n" +
+                            "where td.id_term='" + idTerm + "'\n" +
+                            "and d.status='1';");
 
             while (rs.next()) {
                 Discepline discepline = new Discepline();

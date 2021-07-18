@@ -56,6 +56,7 @@
         <div class="table">
             <table class="table table-bordered">
                 <tr>
+                    <th>*</th>
                     <th>Имя</th>
                     <th>Фамилия</th>
                     <th>Группа</th>

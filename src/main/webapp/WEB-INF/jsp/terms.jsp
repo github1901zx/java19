@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../resoures/css/student-progress.css">
+    <link rel="stylesheet" href="../../resources/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <script type="text/javascript" src="../../resoures/js/function.js?v=3" charset="UTF-8"></script>
 
@@ -22,16 +22,15 @@
 
 <section class="table_students">
     <div class="container">
-        <ul class="nav nav-pills navbar">
-            <li class="nav-item ">
-                <a class="nav-link active home" aria-current="page" href="#">На главную</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link active exit" aria-current="page" href="#">Выход</a>
-            </li>
-
-        </ul>
-        <h1>Система управления студентами и их успеваемостью</h1>
+        <nav class="navi">
+            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="../../index.jsp" role="button" aria-controls="offcanvasExample">
+                На главную
+            </a>
+            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                Выход
+            </a>
+        </nav>
+        <h1 class="disp">Система управления студентами и их успеваемостью</h1>
 
         <h3>Отображена успеваемость для следующего студента:</h3>
         <div class="row">

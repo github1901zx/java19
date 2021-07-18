@@ -20,4 +20,37 @@ public class StudentsCreateController extends HttpServlet {
         req.getRequestDispatcher("WEB-INF/jsp/student-create.jsp").forward(req,resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String lastname = req.getParameter("lastname");
+        String name = req.getParameter("name");
+        String group = req.getParameter("group");
+        String date = req.getParameter("date");
+        String status ="1";
+            boolean m = false;
+            if(lastname == null || lastname.equals("")){
+                req.setAttribute("massege","error");
+                m = true;
+            }
+            if(name == null || name.equals("")){
+                req.setAttribute("massege1","error1");
+                m = true;
+            }
+            if(group == null || group.equals("")){
+                req.setAttribute("massege2","error2");
+                m = true;
+            }
+            if(date == null || date.equals("")){
+                req.setAttribute("massege3","error3");
+                m = true;
+            }
+            if(m){
+                req.getRequestDispatcher("WEB-INF/jsp/student-create.jsp").forward(req,resp);
+                return;
+            }
+
+        DBManager.createStudent(lastname,name,group,date,status);
+        resp.sendRedirect("/students");
+    }
+
 }
