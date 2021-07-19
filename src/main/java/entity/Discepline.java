@@ -4,6 +4,8 @@ public class Discepline {
     private int id;
     private String discipline;
     private int status = 1;
+    private boolean selected = false;
+
 
     public Discepline(){
 
@@ -36,6 +38,14 @@ public class Discepline {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 
     @Override

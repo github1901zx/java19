@@ -16,8 +16,22 @@ import java.util.ArrayList;
 public class TermsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String selected = req.getParameter("selected");
         ArrayList<Term> terms = DBManager.getAllActiveTerms();
-        Term selectedTerm = terms.get(0);
+
+        Term selectedTerm = null;
+
+
+        if(selected == null|| selected.equals("")){
+            selectedTerm= terms.get(0);
+        }else{
+            for (Term t : terms) {
+                if(selected.equals(t.getId()+"")){
+                    selectedTerm = t;
+                }
+            }
+        }
+
         ArrayList<Discepline> disceplines = DBManager.getAllActiveDisceplinesByTerm(selectedTerm.getId());
         req.setAttribute("terms",terms);
         req.setAttribute("selectedTerm",selectedTerm);

@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page isELIgnored="false" %>
@@ -23,50 +22,57 @@
 <section class="table_students">
     <div class="container">
         <nav class="navi">
-            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="../../index.jsp" role="button" aria-controls="offcanvasExample">
+            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="../../index.jsp" role="button"
+               aria-controls="offcanvasExample">
                 На главную
             </a>
-            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+               aria-controls="offcanvasExample">
                 Выход
             </a>
         </nav>
         <h1 class="disp">Система управления студентами и их успеваемостью</h1>
 
         <h3>Отображена успеваемость для следующего студента:</h3>
+
         <div class="row">
-            <div class="col-md-3">
-                <div class="submin_le">
+            <form action="/terms" method="get">
+                <div class="col-md-3">
+                    <div class="submin_le">
 
-                    <select class="form-select semestr list_emestr" aria-label="Default select example">
-                        <c:forEach items="${terms}" var="t">
-                            <c:choose>
-                                <c:when test="${t.id == selectedTerm.id}">
-                                    <option selected value=${t.id}>${t.name}</option>
-                                </c:when>
-                                <c:otherwise>
-                                    <option value=${t.id}>${t.name}</option>
-                                </c:otherwise>
-                            </c:choose>
+                        <select name="selected" class="form-select semestr list_emestr" aria-label="Default select example">
+                            <c:forEach items="${terms}" var="t">
+                                <c:choose>
+                                    <c:when test="${t.id == selectedTerm.id}">
+                                        <option selected value=${t.id}>${t.name}</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value=${t.id}>${t.name}</option>
+                                    </c:otherwise>
+                                </c:choose>
 
 
-                        </c:forEach>
-                    </select>
+                            </c:forEach>
+                        </select>
 
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="submin_le">
-                    <div class="choose_input">
-                        <button type="button" class="btn btn-outline-primary ">Выбрать</button>
                     </div>
                 </div>
-            </div>
-
+                <div class="col-md-3">
+                    <div class="submin_le">
+                        <div class="choose_input">
+                            <input type="submit" class="btn btn-primary buttonD" value="Выбрать">
+                        </div>
+                    </div>
+                </div>
+            </form>
 
             <div class="table_progres">
 
                 <div class="col-md-5">
                     <table class="table table-bordered border-primary">
+                        <tr>
+                            <th>Название дисциплины</th>
+                        </tr>
                         <c:forEach items="${disceplines}" var="d">
                             <tr>
                                 <td>${d.discipline}</td>
@@ -77,18 +83,17 @@
                     </table>
 
                 </div>
-
+                <input type="submit" class="btn btn-primary buttonD" value="Создать семестр">
+                <form action="/terms-modify" method="get">
+                    <input type="hidden" value="${selectedTerm.id}" name="idModify">
+                <input type="submit" class="btn btn-primary buttonD" value="Модифицировать семестр">
+                </form>
+                <input type="submit" class="btn btn-primary buttonD" value="Удалить семестр">
             </div>
         </div>
 
 
     </div>
-
-
-
-
-
-
 
 
 </section>
