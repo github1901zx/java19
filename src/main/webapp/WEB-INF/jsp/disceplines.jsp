@@ -24,7 +24,7 @@
                aria-controls="offcanvasExample">
                 На главную
             </a>
-            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="/logout" role="button"
                aria-controls="offcanvasExample">
                 Выход
             </a>
@@ -60,6 +60,7 @@
                 <div class="col-md-6">
                     <div class="button-disp">
 
+                        <c:if test="${role == 1}">
                         <form action="/discipline-create" method="get">
                             <input class="btn btn-primary buttonD" type="submit" value="Создать дисциплину ...">
                         </form>
@@ -73,7 +74,7 @@
                         <form id="formDelete" action="/discipline-delete"  onclick="delDiscipline" method="post">
                             <input type="hidden" id="hiddenDelete" name="hiddenDelete">
                         </form>
-
+                        </c:if>
 
 
                     </div>

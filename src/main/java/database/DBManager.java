@@ -268,5 +268,26 @@ public class DBManager {
         return null;
     }
 
+    public static boolean isVerifiedUser( String login, String password, String role ) {
+//        String url = "jdbc:mysql://localhost:7777/students_java_19";
+//        String user = "root";
+//        String password = "root19011994";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection
+                    (Constants.url, Constants.user, Constants.password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery
+                    ("SELECT * FROM user_role as us left join user as u on us.id_user=u.id where u.login = '"+login+"' and u.password = '"+password+"' and us.id_role = '"+role+"';");
+
+            while (rs.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 }

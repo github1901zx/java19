@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
@@ -19,11 +20,17 @@
 <section>
     <div class="container">
         <nav class="navi">
+            <c:choose>
+                <c:when test="${role ne  null}">
+                    <a href="/logout">Logout</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="/login">Login</a>
+                </c:otherwise>
+            </c:choose>
+
             <a class="btn btn-primary" data-bs-toggle="offcanvas" href="../../index.jsp" role="button" aria-controls="offcanvasExample">
                 На главную
-            </a>
-            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                Выход
             </a>
         </nav>
         <div class="up">
