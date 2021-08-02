@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="../../resources/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="../../resources/js/function.js"  charset="UTF-8"></script>
     <title>Студенты</title>
 </head>
 <body>
@@ -66,7 +70,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Дата в формате "2020-09-01"</span>
-                    <input type="text" name="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" id="datepicker" name="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     <c:if test="${massege3 == 'error3'}">
                         <h5>Поле не должно быть пусты</h5>
                     </c:if>

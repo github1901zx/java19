@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +71,7 @@
                             <td>${stud.name}</td>
                             <td>${stud.lastname}</td>
                             <td>${stud.group.name}</td>
-                            <td>${stud.date}</td>
+                            <td><fmt:formatDate value="${stud.date}" pattern="yyyy/MM/dd"></fmt:formatDate></td>
                         </tr>
                     </c:forEach>
             </table>

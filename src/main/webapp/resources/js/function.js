@@ -46,3 +46,7 @@ function delDiscipline() {
     var form = document.getElementById("formDelete");
     form.submit();
 }
+
+$( function() {
+    $( "#datepicker" ).datepicker();
+} );
