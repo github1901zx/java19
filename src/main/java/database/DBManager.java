@@ -27,11 +27,13 @@ public class DBManager {
             Connection conn = DriverManager.getConnection
                     (Constants.url, Constants.user, Constants.password);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT student.lastname,student.name,group.name as grp,student.date FROM student LEFT JOIN `group` on `group`.id = student.id_group;");
+            ResultSet rs = stmt.executeQuery("" +
+                    "SELECT student.id, student.lastname,student.name,group.name as grp,student.date FROM student LEFT JOIN `group` on `group`.id = student.id_group WHERE student.status = '1';");
 
             while (rs.next()) {
                 Student student = new Student();
                 Group group = new Group();
+                student.setId(rs.getInt("id"));
                 student.setLastname(rs.getString("lastname"));
                 student.setName(rs.getString("name"));
                 student.setDate(rs.getDate("date"));
@@ -289,5 +291,69 @@ public class DBManager {
         return false;
     }
 
+    public static void deleteStudents(String id) {
+//        String url = "jdbc:mysql://localhost:7777/students_java_19";
+//        String user = "root";
+//        String password = "root19011994";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection
+                    (Constants.url, Constants.user, Constants.password);
+            Statement stmt = conn.createStatement();
+            stmt.execute("UPDATE `students_java_19`.`student` SET `status` = '0' WHERE id = (" + id + ");");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void modifyStudent(String id,String lastname, String name, String idGrp, String date) {
+
+//        String url = "jdbc:mysql://localhost:7777/students_java_19";
+//        String user = "root";
+//        String password = "root19011994";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection
+                    (Constants.url, Constants.user, Constants.password);
+            Statement stmt = conn.createStatement();
+            stmt.execute("UPDATE `students_java_19`.`student` SET `lastname` = '" + lastname + "', `name` = '" + name + "',`id_group` = '" + idGrp + "',`date`='" + date + "',`status`='1' WHERE (`id` = " + id + ")");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static Student getStudent(String id) {
+
+//        String url = "jdbc:mysql://localhost:7777/students_java_19";
+//        String user = "root";
+//        String password = "root19011994";
+        Student student = new Student();
+        Group group = new Group();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection
+                    (Constants.url, Constants.user, Constants.password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(
+                    "SELECT student.id, student.lastname,student.name,group.name as grp,group.id as grpId, student.date FROM student LEFT JOIN `group` on `group`.id = student.id_group WHERE student.id = " + id + ";");
+            while (rs.next()) {
+
+                student.setId(rs.getInt("id"));
+                student.setLastname(rs.getString("lastname"));
+                student.setName(rs.getString("name"));
+                student.setDate(rs.getDate("date"));
+                group.setId(rs.getInt("grpId"));
+                group.setName(rs.getString("grp"));
+                student.setGroup(group);
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return student;
+    }
 
 }

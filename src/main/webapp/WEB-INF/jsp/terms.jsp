@@ -81,14 +81,15 @@
 
 
                     </table>
-
                 </div>
+                <c:if test="${role == 1}">
                 <input type="submit" class="btn btn-primary buttonD" value="Создать семестр">
                 <form action="/terms-modify" method="get">
                     <input type="hidden" value="${selectedTerm.id}" name="idModify">
                 <input type="submit" class="btn btn-primary buttonD" value="Модифицировать семестр">
                 </form>
                 <input type="submit" class="btn btn-primary buttonD" value="Удалить семестр">
+                </c:if>
             </div>
         </div>
 

@@ -29,7 +29,6 @@ public class StudentsCreateController extends HttpServlet {
         String lastname = req.getParameter("lastname");
         String name = req.getParameter("name");
         String group = req.getParameter("group");
-
         String dateFromUser = req.getParameter("date");
         DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
         Date date = null;

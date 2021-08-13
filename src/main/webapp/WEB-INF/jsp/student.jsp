@@ -14,6 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="../../resources/css/style.css">
+    <script type="text/javascript" src="../../resources/js/function.js"  charset="UTF-8"></script>
 
     <title>Students list</title>
 
@@ -33,13 +34,16 @@
         <div class="up">
             <h1 class="disp">Система управлени студентами и их успеваемостью</h1>
         </div>
-
+        <c:if test="${role == 1}">
         <div class="btn">
             <div class="row">
                 <div class="col-md-6">
                     <div class="right">
                             <input class="btn btn-primary buttonDstud" type="submit" value="Посмотреть успеваемоcть выбранных студентов">
-                            <input class="btn btn-primary buttonDstud" type="submit" value="Модифицыровать выбранного студента">
+                            <input class="btn btn-primary buttonDstud" type="submit" onclick="modifyStud()"value="Модифицировать выбранного студента">
+                        <form id="formModifyStud" action="/students-modify"  onclick="modifyStud()" method="get">
+                            <input type="hidden" id="hiddenModify" name="hiddenModify">
+                        </form>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -47,13 +51,16 @@
                         <form action="/students-create" method="get">
                             <input class="btn btn-primary buttonDstud" type="submit" value="Создать студента">
                         </form>
-
-                            <input class="btn btn-primary buttonDstud" type="submit" value="Удалить студента">
+                            <input class="btn btn-primary buttonDstud" type="submit" onclick="delStudents()"  value="Удалить студента">
+                        <form id="formDeleteStud" action="/students-delete"  onclick="delStudents()" method="post">
+                            <input type="hidden" id="hiddenDelete" name="hiddenDelete">
+                        </form>
                     </div>
 
                 </div>
             </div>
         </div>
+        </c:if>
         <div class="table">
             <table class="table table-bordered">
                 <tr>
