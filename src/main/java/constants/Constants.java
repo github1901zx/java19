@@ -9,5 +9,4 @@ public interface Constants {
 //    String url = "jdbc:mysql://localhost:3306/students_java_19";
 //    String user = "root19";
 //    String password = "root19011994";
-
 }

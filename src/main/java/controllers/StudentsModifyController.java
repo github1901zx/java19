@@ -3,6 +3,7 @@ package controllers;
 import database.DBManager;
 import entity.Group;
 import entity.Student;
+import filtres.DataFilter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @WebServlet(name = "StudentsModifyController", urlPatterns = "/students-modify")
 public class StudentsModifyController extends HttpServlet {
@@ -32,6 +35,8 @@ public class StudentsModifyController extends HttpServlet {
         String name = req.getParameter("name");
         String group = req.getParameter("group");
         String dateFromUser = req.getParameter("date");
+        String dateDbFinal = DataFilter.data(dateFromUser);
+
 
 //        DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 //        Date date = null;
@@ -71,7 +76,7 @@ public class StudentsModifyController extends HttpServlet {
             return;
         }
 
-        DBManager.modifyStudent(id, lastname, name, group, dateFromUser);
+        DBManager.modifyStudent(id, lastname, name, group, dateDbFinal);
         resp.sendRedirect("/students");
     }
 }

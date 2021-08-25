@@ -42,7 +42,7 @@
             <div class="col-md-6">
                 <form action="/students-modify" method="post">
                     <div class="input-group mb-3">
-                        <input name="idstd" value="${stud.id}">
+                        <input name="idstd" hidden value="${stud.id}">
                         <span class="input-group-text" id="inputGroup-sizing-default">Фамилия</span>
                         <input type="text" name="lastname" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="${stud.lastname}">
                         <c:if test="${massege == 'error'}">
