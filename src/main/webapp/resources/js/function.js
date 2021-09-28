@@ -103,3 +103,23 @@ function modifyStud() {
     form.submit();
 
 }
+
+function progressStud() {
+    var checkedBoxes = document.querySelectorAll('input[type=checkbox]:checked');
+    if (checkedBoxes.length == 0) {
+        alert(" Выбирите хотябы одного студента")
+        return;
+    }
+
+    if (checkedBoxes.length > 1) {
+        alert(" Выбирите только одного студента")
+        return;
+    }
+    var id = checkedBoxes[0].getAttribute("value");
+    var hidden = document.getElementById("hiddenProg");
+    hidden.setAttribute("value", id);
+
+    var form = document.getElementById("formProgStud");
+    form.submit();
+
+}

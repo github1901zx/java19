@@ -39,7 +39,12 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="right">
-                            <input class="btn btn-primary buttonDstud" type="submit" value="Посмотреть успеваемоcть выбранных студентов">
+
+                            <input class="btn btn-primary buttonDstud" type="submit" onclick="progressStud()" value="Посмотреть успеваемоcть выбранных студентов">
+                        <form id="formProgStud" action="/studentProgress"  onclick="progressStud()" method="get">
+                            <input type="hidden" id="hiddenProg" name="hiddenProg">
+                        </form>
+
                             <input class="btn btn-primary buttonDstud" type="submit" onclick="modifyStud()"value="Модифицировать выбранного студента">
                         <form id="formModifyStud" action="/students-modify"  onclick="modifyStud()" method="get">
                             <input type="hidden" id="hiddenModify" name="hiddenModify">

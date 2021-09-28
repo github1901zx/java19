@@ -50,8 +50,6 @@
                                         <option value=${t.id}>${t.name}</option>
                                     </c:otherwise>
                                 </c:choose>
-
-
                             </c:forEach>
                         </select>
 

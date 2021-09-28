@@ -2,16 +2,14 @@ package database;
 
 
 import constants.Constants;
-import entity.Discepline;
-import entity.Group;
-import entity.Student;
-import entity.Term;
+import entity.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class DBManager {
 
@@ -324,6 +322,51 @@ public class DBManager {
             e.printStackTrace();
         }
     }
+    public static ArrayList<Mark> progresStudent(String id,int idTerm) {
+
+//        String url = "jdbc:mysql://localhost:7777/students_java_19";
+//        String user = "root";
+//        String password = "root19011994";
+
+        ArrayList<Mark> marks = new ArrayList<>();
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection
+                    (Constants.url, Constants.user, Constants.password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(
+                    "SELECT mark.id as \"markId\", discipline.id, discipline.discipline as \"nameD\",mark.mark,term.id as \"trid\" " +
+                            "FROM students_java_19.mark " +
+                            "LEFT JOIN term_discipline ON mark.id_term_discipline=term_discipline.id " +
+                            "LEFT JOIN student ON student.id=mark.id_student " +
+                            "JOIN discipline on term_discipline.id_discipline=discipline.id " +
+                            "JOIN term on term.id=term_discipline.id_term " +
+                            "where (student.id  = " + id + ") and (term.id = " + idTerm + ")");
+            int semCount = 1;
+            while (rs.next()) {
+                Mark mark = new Mark();
+                Discepline discepline = new Discepline();
+                Term term = new Term();
+                mark.setId(rs.getInt("markId"));
+                mark.setMark(rs.getInt("mark"));
+                term.setId(rs.getInt("trid"));
+                term.setName("Семестр" + semCount);
+                mark.setTerm(term);
+                discepline.setId(rs.getInt("id"));
+                discepline.setDiscipline(rs.getString("nameD"));
+                mark.setDiscepline(discepline);
+                marks.add(mark);
+                semCount++;
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return marks;
+    }
+
     public static Student getStudent(String id) {
 
 //        String url = "jdbc:mysql://localhost:7777/students_java_19";
@@ -338,8 +381,8 @@ public class DBManager {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(
                     "SELECT student.id, student.lastname,student.name,group.name as grp,group.id as grpId, student.date FROM student LEFT JOIN `group` on `group`.id = student.id_group WHERE student.id = " + id + ";");
-            while (rs.next()) {
 
+            while (rs.next()) {
                 student.setId(rs.getInt("id"));
                 student.setLastname(rs.getString("lastname"));
                 student.setName(rs.getString("name"));
