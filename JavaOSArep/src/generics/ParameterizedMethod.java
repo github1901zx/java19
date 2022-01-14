@@ -5,7 +5,9 @@ import java.util.ArrayList;
 public class ParameterizedMethod {
     public static void main(String[] args) {
         ArrayList<String> ar1 = new ArrayList<>();
+        // ArrayList ar1 = new ArrayList<>();
         ar1.add("adfa");
+        // String a = (String)"adfa";
         ar1.add("adfasdfasd");
         ar1.add("adfaghjg");
         ar1.add("adfakljt564");
