@@ -67,9 +67,9 @@ public class Employee {
 }
 
 class TestEmployee {
-    public void printEmployee(Employee e) {
-        e.toString();
-    }
+//    public void printEmployee(Employee e) {
+//        e.toString();
+//    }
 
     public static void filtraciaRabotnikov(ArrayList<Employee> employees, Predicate<Employee> predicateEmp){
         for (Employee w: employees) {
@@ -96,7 +96,16 @@ class TestEmployee {
         System.out.println("_______________________________1");
         TestEmployee.filtraciaRabotnikov(arrEmp,(Employee e) -> e.getName().trim().toLowerCase(Locale.ROOT).startsWith("e") && e.getSalary() != 450);
         System.out.println("_______________________________2");
-        TestEmployee.filtraciaRabotnikov(arrEmp,(Employee e) -> e.getName().equals(e.getDepartment()));
+        TestEmployee.filtraciaRabotnikov(arrEmp,(Employee e) -> e.getName().equals(e.getDepartment().equals("it")));
+
+        Predicate<Employee> p1 = employee -> employee.getDepartment().equals("it");
+        Predicate<Employee> p2 = employee -> employee.getSalary() < 1000;
+        System.out.println("_______________________________and");
+        TestEmployee.filtraciaRabotnikov(arrEmp, p1.and(p2));
+        System.out.println("_______________________________or");
+        TestEmployee.filtraciaRabotnikov(arrEmp, p1.or(p2));
+        System.out.println("_______________________________negate");
+        TestEmployee.filtraciaRabotnikov(arrEmp, p1.negate());
 
     }
 }
