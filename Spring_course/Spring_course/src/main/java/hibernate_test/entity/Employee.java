@@ -1,6 +1,8 @@
 package hibernate_test.entity;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +26,14 @@ public class Employee {
     private int salary;
     @Column(name = "emp_department")
     private String department;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "emp_iddit")
+    private Ditails ditails;
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
+    @JoinColumn(name = "emp_depId")
+    private Department departmentToMany;
+
+
 
     public Employee() {
     }
@@ -33,6 +43,14 @@ public class Employee {
         this.surName = surName;
         this.salary = salary;
         this.department = department;
+    }
+
+    public Department getDepartmentToMany() {
+        return departmentToMany;
+    }
+
+    public void setDepartmentToMany(Department departmentToMany) {
+        this.departmentToMany = departmentToMany;
     }
 
     public int getId() {
@@ -73,6 +91,13 @@ public class Employee {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+    public Ditails getDitails() {
+        return ditails;
+    }
+
+    public void setDitails(Ditails ditails) {
+        this.ditails = ditails;
     }
 
     @Override

@@ -1,0 +1,7 @@
+  server:
+    port: 9999
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQL94Dialect
+      ddl-auto: create
+

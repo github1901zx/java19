@@ -1,5 +1,6 @@
 package hibernate_test;
 
+import hibernate_test.entity.Ditails;
 import hibernate_test.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,14 +15,13 @@ public class Test1 {
         ClassPathXmlApplicationContext context
                 = new ClassPathXmlApplicationContext("appContextHiber.xml");
 
-//        Employee employee = context.getBean("employeeBean", Employee.class);
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Ditails.class)
                 .buildSessionFactory();
 
         Session session = factory.getCurrentSession();
 
-//        Employee employee = new Employee("Vlad","Nabi",1800,"IT");
         try {
             session.beginTransaction();
 //            session.save(employee);
@@ -34,14 +34,18 @@ public class Test1 {
 //                    "where name = 'vlad'").getResultList();
 //            System.out.println(employeesList);
 
-            Employee empSave = session.get(Employee.class,6);
-//            empSave.setSalary(10000);
-
-            session.createQuery("update Employee set salary=999 " +
+//            Employee empSave = new Employee("vasa","gold",100,"CLEAN");
+////            empSave.setSalary(10000);
+//            Ditails ditails = new Ditails("London","london@gmail.com","+111");
+//            empSave.setDitails(ditails);
+//            ditails.setEmployee(empSave);
+//            session.save(ditails);
+            session.createQuery("update Employee set salary=1000 " +
                     " where name='Vlad'").executeUpdate();
-        }
-        finally {
             session.getTransaction().commit();
+    }
+        finally {
+            session.close();
             factory.close();
         }
 

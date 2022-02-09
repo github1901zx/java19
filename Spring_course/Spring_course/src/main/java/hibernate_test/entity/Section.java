@@ -1,0 +1,84 @@
+package hibernate_test.entity;
+
+import net.bytebuddy.agent.builder.AgentBuilder;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+@Entity
+@Table(name = "section")
+public class Section {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "name")
+    private String name;
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH}
+            , fetch = FetchType.EAGER)
+    @JoinTable(name = "child_section"
+            , joinColumns = @JoinColumn(name = "section_id")
+            , inverseJoinColumns = @JoinColumn(name = "child_id"))
+    private List<Child> children;
+
+
+    public Section() {
+    }
+
+    public Section(String name) {
+        this.name = name;
+    }
+
+    public void addChild(Child child) {
+        if (children == null) {
+            children = new ArrayList<>();
+        }
+        children.add(child);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Child> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Child> children) {
+        this.children = children;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Section section = (Section) o;
+        return id == section.id && Objects.equals(name, section.name) && Objects.equals(children, section.children);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, children);
+    }
+
+    @Override
+    public String toString() {
+        return "Section{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
