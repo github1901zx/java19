@@ -9,51 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b8f6f0-e609-4c4e-b732-a76cdb3efc2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Spring_course/src/main/java/hibernate_test/Test2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring_course/src/main/java/hibernate_test/Test3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring_course/src/main/java/hibernate_test/Test4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring_course/src/main/java/hibernate_test/entity/Child.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring_course/src/main/java/hibernate_test/entity/Department.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring_course/src/main/java/hibernate_test/entity/Ditails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring_course/src/main/java/hibernate_test/entity/Section.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../com.popov.sprig.hibernate/com.popov.sprig.hibernate/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../com.popov.sprig.hibernate/com.popov.sprig.hibernate/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../com.popov.sprig.hibernate/com.popov.sprig.hibernate/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../com.popov.sprig.hibernate/com.popov.sprig.hibernate/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../com.popov.sprig.hibernate/com.popov.sprig.hibernate/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../com.popov.sprig.hibernate/com.popov.sprig.hibernate/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../com.popov.sprig.hibernate/com.popov.sprig.hibernate/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/src/main/java/ru/example/getuserservice/GetUserServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/src/main/java/ru/example/getuserservice/controllers/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/src/main/java/ru/example/getuserservice/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/src/main/java/ru/example/getuserservice/services/ParserJsonUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../get-user-service/src/test/java/ru/example/getuserservice/GetUserServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/popov/spring/mvc/Employye.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/popov/spring/mvc/MyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/ask-emp-detils.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/fist-view.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/show-emp-detils.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+    <list default="true" id="e2b8f6f0-e609-4c4e-b732-a76cdb3efc2e" name="Default Changelist" comment="09.02.2022">
       <change beforePath="$PROJECT_DIR$/../../JavaCore23" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaCore23" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Spring_course/src/main/java/hibernate_test/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_course/src/main/java/hibernate_test/Test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Spring_course/src/main/java/hibernate_test/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_course/src/main/java/hibernate_test/entity/Employee.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,8 +153,23 @@
       <workItem from="1644257053161" duration="1520000" />
       <workItem from="1644258713706" duration="1284000" />
       <workItem from="1644267456754" duration="66000" />
-      <workItem from="1644405975560" duration="2253000" />
+      <workItem from="1644405975560" duration="2313000" />
     </task>
+    <task id="LOCAL-00001" summary="09.02.2022">
+      <created>1644409287259</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1644409287259</updated>
+    </task>
+    <task id="LOCAL-00002" summary="09.02.2022">
+      <created>1644409303426</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1644409303426</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,5 +186,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="09.02.2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="09.02.2022" />
   </component>
 </project>

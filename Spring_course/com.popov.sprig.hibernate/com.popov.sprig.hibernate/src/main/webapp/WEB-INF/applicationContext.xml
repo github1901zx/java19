@@ -14,7 +14,7 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="com.popov.spring.mvc_hi bernate_aop" />
+    <context:component-scan base-package="com.popov.spring.mvc_hibernate_aop" />
 
     <mvc:annotation-driven/>
 
@@ -27,15 +27,15 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/my_db?useSSL=false&amp;serverTimezone=UTC" />
-        <property name="user" value="bestuser" />
-        <property name="password" value="bestuser" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:7777/bd_emp?useSSL=false&amp;serverTimezone=UTC" />
+        <property name="user" value="root" />
+        <property name="password" value="root19011994" />
     </bean>
 
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.zaurtregulov.spring.mvc_hibernate_aop.entity" />
+        <property name="packagesToScan" value="com.popov.spring.mvc_hibernate_aop.entity" />
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
